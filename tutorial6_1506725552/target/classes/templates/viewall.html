@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css"></link>
+
+<head th:replace="fragments/header :: header('Melihat Semua Student')">
+</head>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#student_table_id').dataTable();
+    });
+</script>
+    <body>
+        <h1>All Students</h1>
+        
+        <table id="student_table_id">
+        	<thead>
+        		<tr>
+        		    <th>No</th>
+	        		<th>NPM</th>
+	        		<th>Name</th>
+	        		<th>GPA</th>
+	        		<th>Cum laude</th>
+	        		<th>DELETE</th>
+	        		<th>UPDATE</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        		<tr data-th-each="student,iterStat : ${students}" th:object="${student}">
+        			<td data-th-text="${iterStat.index} + 1"></td>
+        			<td data-th-text="*{npm}"></td>
+        			<td data-th-text="*{name}"> </td>
+        			<td data-th-text="*{gpa}"> </td>
+        			<td data-th-text="*{gpa >= 3.49} ? 'IYA' : 'TIDAK'"></td>
+        			<td><a th:href="@{/student/delete/{npm}(npm=*{npm})}">DELETE</a></td>
+        			<td><a th:href="@{/student/update/{npm}(npm=*{npm})}">UPDATE</a></td>
+        		</tr>
+        	</tbody>
+        </table>
+    </body>
+</html>
