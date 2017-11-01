@@ -2,7 +2,7 @@ Manifest-Version: 1.0
 Implementation-Title: APAPTutorial04
 Implementation-Version: 0.0.1-SNAPSHOT
 Built-By: Asus
-Implementation-Vendor-Id: com.example
+Implementation-Vendor-Id: com.tutorial.lima
 Build-Jdk: 1.8.0_131
 Implementation-URL: http://projects.spring.io/spring-boot/APAPTutorial
  04/
