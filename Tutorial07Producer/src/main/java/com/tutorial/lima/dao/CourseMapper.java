@@ -33,5 +33,9 @@ public interface CourseMapper {
     @Select("SELECT * FROM student, studentcourse "
     		+ "WHERE student.npm = studentcourse.npm AND studentcourse.id_course = #{id_course}")
     List<StudentModel> selectStudents(@Param("id_course") String id_course);
+
+    @Select("select id_course as idCourse, name, credits "
+    		+ "from course;")
+	List<CourseModel> selectAllCourses();
 	
 }
