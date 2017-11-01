@@ -1,5 +1,7 @@
 package com.tutorial.lima.rest;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,11 @@ public class StudentRestController {
 	@RequestMapping("/student/view/{npm}")
 	public StudentModel view(@PathVariable(value = "npm") String npm) {
 		return studentService.selectStudent(npm);
+	}
+	
+	@RequestMapping("/student/viewall")
+	public List<StudentModel> viewAll(){
+		return studentService.selectAllStudents();
 	}
 	
 }
