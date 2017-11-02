@@ -20,8 +20,8 @@ public class StudentServiceRest implements StudentService
 	private StudentDAO studentDAO;
 	
 	@Override
-	public StudentModel selectStudent ( String npm){
-		return studentDAO.selectStudent ( npm );
+	public StudentModel selectStudent (String npm){
+		return studentDAO.selectStudent (npm);
 	}
 	@Override
 	public List <StudentModel> selectAllStudents (){
