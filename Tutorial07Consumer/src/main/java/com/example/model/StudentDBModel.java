@@ -1,7 +1,5 @@
 package com.example.model;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -11,11 +9,10 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-public class CourseModel {
+public class StudentDBModel {
 	
-	private String idCourse;
-	private String name;
-	private Integer credits;
-	private List<StudentDBModel> students;
+    private String npm;
+    private String name;
+    private double gpa;
 	
 }
