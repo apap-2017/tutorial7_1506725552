@@ -3,26 +3,26 @@ package com.example.service;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Service;
 
-import com.example.dao.CourseMapper;
+import com.example.dao.CourseDAO;
 import com.example.model.CourseModel;
 
 @Service
-public class CourseServiceDatabase implements CourseService{
+@Primary
+public class CourseServiceRest implements CourseService{
 	
 	@Autowired
-	private CourseMapper courseMapper;
+	private CourseDAO courseDAO;
 
 	@Override
 	public CourseModel selectCourse(String idCourse) {
-		return courseMapper.selectCourse(idCourse);
+		return courseDAO.selectCourse(idCourse);
 	}
 
 	@Override
 	public List<CourseModel> selectAllCourse() {
-		// TODO Auto-generated method stub
-		return null;
+		return courseDAO.selectAllCourse();
 	}
-
 }

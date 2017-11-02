@@ -54,6 +54,8 @@ public class StudentController
     public String view (Model model,
             @RequestParam(value = "npm", required = false) String npm)
     {
+
+		System.out.println("TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT - 1111111111111111111111111111");
         StudentModel student = studentDAO.selectStudent (npm);
 
         if (student != null) {

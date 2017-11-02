@@ -22,6 +22,7 @@ public class StudentServiceDatabase implements StudentService
     public StudentModel selectStudent (String npm)
     {
         log.info ("select student with npm {}", npm);
+		System.out.println("TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT - DATABSEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE");
         return studentMapper.selectStudent (npm);
     }
 
