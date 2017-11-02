@@ -6,45 +6,24 @@ import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
-import org.apache.ibatis.annotations.Result;
-import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
-import com.tutorial.lima.model.CourseModel;
+import com.tutorial.lima.model.StudentDBModel;
 import com.tutorial.lima.model.StudentModel;
-
-import org.apache.ibatis.annotations.Many;
 
 @Mapper
 public interface StudentMapper
 {
     @Select("select npm, name, gpa from student where npm = #{npm}")
-    @Results(value = {
-    		@Result(property = "npm", column = "npm"),
-    		@Result(property = "name", column = "name"),
-    		@Result(property = "gpa", column = "gpa"),
-    		@Result(property = "courses"
-    			, column = "npm"
-    			, javaType = List.class
-    			, many = @Many (select = "selectCourses"))
-    })
     StudentModel selectStudent (@Param("npm") String npm);
     
-    @Select("SELECT course.id_course as idCourse, name, credits "
-    		+ "FROM studentcourse join course "
-    		+ "ON studentcourse.id_course = course.id_course "
-    		+ "WHERE studentcourse.npm = #{npm}")
-    List<CourseModel> selectCourses (@Param("npm") String npm);
+    @Select("select s.npm, s.name, s.gpa "
+    		+ "from student s, studentcourse sc "
+    		+ "where s.npm = sc.npm and sc.id_course = #{id_course};")
+    List<StudentDBModel> selectAllStudentsForCourse(@Param("id_course") String idCourse);
 	
-
     @Select("select npm, name, gpa from student")
-    @Results(value = {
-    		@Result(property = "npm", column = "npm"),
-    		@Result(property = "name", column = "name"),
-    		@Result(property = "gpa", column = "gpa"),
-    		@Result(property = "courses", column = "npm", javaType = List.class, many = @Many (select = "selectCourses"))
-    })
     List<StudentModel> selectAllStudents ();
 
     @Insert("INSERT INTO student (npm, name, gpa) VALUES (#{npm}, #{name}, #{gpa})")

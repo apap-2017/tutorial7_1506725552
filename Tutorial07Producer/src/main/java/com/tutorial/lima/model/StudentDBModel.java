@@ -1,21 +1,18 @@
 package com.tutorial.lima.model;
 
-import java.util.List;
-
 import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class StudentModel
-{
+public class StudentDBModel {
+	
     private String npm;
     private String name;
     private double gpa;
-    private List<CourseDBModel> courses;
-
+	
 }
