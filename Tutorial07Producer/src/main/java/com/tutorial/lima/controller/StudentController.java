@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.tutorial.lima.controller;
 
 import java.util.List;
 
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.model.StudentModel;
-import com.example.service.StudentService;
+import com.tutorial.lima.model.StudentModel;
+import com.tutorial.lima.service.StudentService;
 
 @Controller
 public class StudentController
@@ -23,9 +23,8 @@ public class StudentController
 
 
     @RequestMapping("/")
-    public String index (Model model)
+    public String index ()
     {
-    	model.addAttribute("index_titile", "Home");
         return "index";
     }
 
