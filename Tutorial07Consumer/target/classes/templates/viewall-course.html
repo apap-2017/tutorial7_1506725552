@@ -31,7 +31,13 @@
         			<td data-th-text="*{idCourse}"></td>
         			<td data-th-text="*{name}"> </td>
         			<td data-th-text="*{credits}"> </td>
-        			<td>NOT YET</td>
+        			<td>
+        			
+        				<ul>
+						  <li th:each="student : *{students}" th:text="${student.npm} + ' - ' + ${student.name}">Item description here...</li>
+						</ul>
+        			
+        			</td>
         		</tr>
         	</tbody>
         </table>
