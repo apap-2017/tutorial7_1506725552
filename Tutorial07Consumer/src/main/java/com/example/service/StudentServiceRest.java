@@ -21,7 +21,6 @@ public class StudentServiceRest implements StudentService
 	
 	@Override
 	public StudentModel selectStudent (String npm){
-		System.out.println("TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT - RESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT");
 		return studentDAO.selectStudent (npm);
 	}
 	@Override

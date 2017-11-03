@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="https://cdn.datatables.net/1.10.4/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.4/css/jquery.dataTables.min.css"></link>
+
+<head th:replace="fragments/header :: header('Melihat Semua Student')">
+</head>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('#student_table_id').dataTable();
+    });
+</script>
+    <body>
+        <h1>All Course</h1>
+        
+        <table id="student_table_id">
+        	<thead>
+        		<tr>
+        		    <th>No</th>
+	        		<th>ID</th>
+	        		<th>Name</th>
+	        		<th>Credits</th>
+	        		<th>Students</th>
+        		</tr>
+        	</thead>
+        	<tbody>
+        		<tr data-th-each="course,iterStat : ${courses}" th:object="${course}">
+        			<td data-th-text="${iterStat.index} + 1"></td>
+        			<td data-th-text="*{idCourse}"></td>
+        			<td data-th-text="*{name}"> </td>
+        			<td data-th-text="*{credits}"> </td>
+        			<td>NOT YET</td>
+        		</tr>
+        	</tbody>
+        </table>
+    </body>
+</html>
