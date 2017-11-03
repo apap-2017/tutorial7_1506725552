@@ -29,4 +29,10 @@ public class CourseController {
 		}
 	}
 	
+	@RequestMapping("course/viewall")
+	public String viewAll(Model model) {
+		model.addAttribute("courses", courseDAO.selectAllCourse());
+		return "viewall-course";
+	}
+	
 }
